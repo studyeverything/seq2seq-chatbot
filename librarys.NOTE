@@ -1,0 +1,151 @@
+(env) D:\Desktops\SEQ2SEQ\seq2seq-chatbot>pip install tensorlayer==1.6.3
+Collecting tensorlayer==1.6.3
+  Downloading https://files.pythonhosted.org/packages/6e/14/59f0d761af4da2870b005ddad2fb76169323e128b38fa7aabf0d35e984e0/tensorlayer-1.6.3.zip (123kB)
+    100% |████████████████████████████████| 133kB 933kB/s
+Collecting numpy (from tensorlayer==1.6.3)
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/af/e4/7d7107bdfb5c33f6cf33cdafea8c27d1209cf0068a6e3e3d3342be6f3578/numpy-1.14.3-cp36-none-win_amd64.whl (13.4MB)
+    100% |████████████████████████████████| 13.4MB 447kB/s
+Collecting scipy (from tensorlayer==1.6.3)
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/62/e2/364f0bcc641aeff79d743c732769d5dc31a1e78c27699229431412c4b425/scipy-1.1.0-cp36-none-win_amd64.whl (31.1MB)
+    100% |████████████████████████████████| 31.1MB 335kB/s
+Collecting scikit-image (from tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/28/c1/48848cbd80154d5f3c6b4f57ee9855c6989ab4b3e841a74c8f38088256cb/scikit_image-0.14.0-cp36-none-win_amd64.whl (24.6MB)
+    100% |████████████████████████████████| 24.6MB 546kB/s
+Collecting matplotlib (from tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/bf/b9/485032835e979ee11d514bb3b9b0543a928b8b96c099c178aeab1d2ba861/matplotlib-2.2.2-cp36-cp36m-win_amd64.whl (8.7MB)
+    100% |████████████████████████████████| 8.7MB 596kB/s
+Collecting pillow>=4.3.0 (from scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/a4/86/283719dac6309cf483452abb09759be9b2c0974435ed608dc67949127e13/Pillow-5.1.0-cp36-cp36m-win_amd64.whl (1.6MB)
+    100% |████████████████████████████████| 1.6MB 860kB/s
+Collecting cloudpickle>=0.2.1 (from scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/e7/bf/60ae7ec1e8c6742d2abbb6819c39a48ee796793bcdb7e1d5e41a3e379ddd/cloudpickle-0.5.3-py2.py3-none-any.whl
+Collecting PyWavelets>=0.4.0 (from scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/30/cf/36a939614f09ca09ac3d33f00786152ee7f422f6ee4490b06a99da6723ee/PyWavelets-0.5.2-cp36-none-win_amd64.whl (4.2MB)
+    100% |████████████████████████████████| 4.2MB 841kB/s
+Collecting dask[array]>=0.9.0 (from scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/91/1a/71be14f468f8f3f94e708afd5662cf75a0ca33a78924ca9f129a9c45c66b/dask-0.17.5-py3-none-any.whl (598kB)
+    100% |████████████████████████████████| 604kB 869kB/s
+Collecting networkx>=1.8 (from scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/11/42/f951cc6838a4dff6ce57211c4d7f8444809ccbe2134179950301e5c4c83c/networkx-2.1.zip (1.6MB)
+    100% |████████████████████████████████| 1.6MB 491kB/s
+Requirement already satisfied: six>=1.10.0 in d:\desktops\seq2seq\seq2seq-chatbot\env\lib\site-packages (from scikit-image->tensorlayer==1.6.3) (1.11.0)
+Collecting cycler>=0.10 (from matplotlib->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/f7/d2/e07d3ebb2bd7af696440ce7e754c59dd546ffe1bbe732c8ab68b9c834e61/cycler-0.10.0-py2.py3-none-any.whl
+Collecting pytz (from matplotlib->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/dc/83/15f7833b70d3e067ca91467ca245bae0f6fe56ddc7451aa0dc5606b120f2/pytz-2018.4-py2.py3-none-any.whl (510kB)
+    100% |████████████████████████████████| 512kB 607kB/s
+Collecting kiwisolver>=1.0.1 (from matplotlib->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/44/72/16630c3392eba03788ad87949390516bbc488e8e118047a3b824631d21a6/kiwisolver-1.0.1-cp36-none-win_amd64.whl (57kB)
+    100% |████████████████████████████████| 61kB 581kB/s
+Collecting pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 (from matplotlib->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/6a/8a/718fd7d3458f9fab8e67186b00abdd345b639976bc7fb3ae722e1b026a50/pyparsing-2.2.0-py2.py3-none-any.whl (56kB)
+    100% |████████████████████████████████| 61kB 513kB/s
+Collecting python-dateutil>=2.1 (from matplotlib->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/cf/f5/af2b09c957ace60dcfac112b669c45c8c97e32f94aa8b56da4c6d1682825/python_dateutil-2.7.3-py2.py3-none-any.whl (211kB)
+    100% |████████████████████████████████| 215kB 614kB/s
+Collecting toolz>=0.7.3; extra == "array" (from dask[array]>=0.9.0->scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/14/d0/a73c15bbeda3d2e7b381a36afb0d9cd770a9f4adc5d1532691013ba881db/toolz-0.9.0.tar.gz (45kB)
+    100% |████████████████████████████████| 51kB 875kB/s
+Collecting decorator>=4.1.0 (from networkx>=1.8->scikit-image->tensorlayer==1.6.3)
+  Downloading https://files.pythonhosted.org/packages/bc/bb/a24838832ba35baf52f32ab1a49b906b5f82fb7c76b2f6a7e35e140bac30/decorator-4.3.0-py2.py3-none-any.whl
+Requirement already satisfied: setuptools in d:\desktops\seq2seq\seq2seq-chatbot\env\lib\site-packages (from kiwisolver>=1.0.1->matplotlib->tensorlayer==1.6.3) (39.2.0)
+Building wheels for collected packages: tensorlayer, networkx, toolz
+  Running setup.py bdist_wheel for tensorlayer ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\d0\87\e2\f47d41c144906b632bd55be9abc310a3449724f5d5850cec8d
+  Running setup.py bdist_wheel for networkx ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\44\c0\34\6f98693a554301bdb405f8d65d95bbcd3e50180cbfdd98a94e
+  Running setup.py bdist_wheel for toolz ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\f4\0c\f6\ce6b2d1aa459ee97cc3c0f82236302bd62d89c86c700219463
+Successfully built tensorlayer networkx toolz
+Installing collected packages: numpy, scipy, pillow, cloudpickle, PyWavelets, toolz, dask, decorator, networkx, scikit-image, cycler, pytz, kiwisolver, pyparsing, python-dateutil, matplotlib, tensorlayer
+Successfully installed PyWavelets-0.5.2 cloudpickle-0.5.3 cycler-0.10.0 dask-0.17.5 decorator-4.3.0 kiwisolver-1.0.1 matplotlib-2.2.2 networkx-2.1 numpy-1.14.3 pillow-5.1.0 pyparsing-2.2.0 python-dateutil-2.7.3 pytz-2018.4 scikit-image-0.14.0 scipy-1.1.0 tensorl
+ayer-1.6.3 toolz-0.9.0
+
+
+
+
+(env) D:\Desktops\SEQ2SEQ\seq2seq-chatbot>python -m pip  install --upgrade tensorflow-gpu==1.2.0
+Collecting tensorflow-gpu==1.2.0
+  Downloading https://files.pythonhosted.org/packages/33/84/d9cd6f255d9e3b295adb78f382a8e17e5c3f918d2a3f39bcbfbd74bf89e6/tensorflow_gpu-1.2.0-cp36-cp36m-win_amd64.whl (51.3MB)
+    100% |████████████████████████████████| 51.3MB 174kB/s
+Collecting markdown==2.2.0 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/ac/99/288a81a38526a42c98b5b9832c6e339ca8d5dd38b19a53abfac7c8037c7f/Markdown-2.2.0.tar.gz (236kB)
+    100% |████████████████████████████████| 245kB 203kB/s
+Collecting six>=1.10.0 (from tensorflow-gpu==1.2.0)
+  Cache entry deserialization failed, entry ignored
+  Using cached https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
+Collecting html5lib==0.9999999 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/ae/ae/bcb60402c60932b32dfaf19bb53870b29eda2cd17551ba5639219fb5ebf9/html5lib-0.9999999.tar.gz (889kB)
+    100% |████████████████████████████████| 890kB 200kB/s
+Requirement not upgraded as not directly required: wheel>=0.26 in d:\desktops\seq2seq\seq2seq-chatbot\env\lib\site-packages (from tensorflow-gpu==1.2.0) (0.31.1)
+Collecting backports.weakref==1.0rc1 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/6a/f7/ae34b6818b603e264f26fe7db2bd07850ce331ce2fde74b266d61f4a2d87/backports.weakref-1.0rc1-py3-none-any.whl
+Collecting bleach==1.5.0 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/33/70/86c5fec937ea4964184d4d6c4f0b9551564f821e1c3575907639036d9b90/bleach-1.5.0-py2.py3-none-any.whl
+Collecting protobuf>=3.2.0 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/32/cf/6945106da76db9b62d11b429aa4e062817523bb587018374c77f4b63200e/protobuf-3.5.2.post1-cp36-cp36m-win_amd64.whl (958kB)
+    100% |████████████████████████████████| 962kB 224kB/s
+Collecting werkzeug>=0.11.10 (from tensorflow-gpu==1.2.0)
+  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB)
+    100% |████████████████████████████████| 327kB 163kB/s
+Collecting numpy>=1.11.0 (from tensorflow-gpu==1.2.0)
+  Using cached https://files.pythonhosted.org/packages/af/e4/7d7107bdfb5c33f6cf33cdafea8c27d1209cf0068a6e3e3d3342be6f3578/numpy-1.14.3-cp36-none-win_amd64.whl
+Requirement not upgraded as not directly required: setuptools in d:\desktops\seq2seq\seq2seq-chatbot\env\lib\site-packages (from protobuf>=3.2.0->tensorflow-gpu==1.2.0) (39.2.0)
+Building wheels for collected packages: markdown, html5lib
+  Running setup.py bdist_wheel for markdown ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\b6\52\17\f0af18e3e0ec6fa60b361ffed15b4c3468f6f3bcdb87fbe079
+  Running setup.py bdist_wheel for html5lib ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\50\ae\f9\d2b189788efcf61d1ee0e36045476735c838898eef1cad6e29
+Successfully built markdown html5lib
+Installing collected packages: markdown, six, html5lib, backports.weakref, bleach, protobuf, werkzeug, numpy, tensorflow-gpu
+Successfully installed backports.weakref-1.0rc1 bleach-1.5.0 html5lib-0.9999999 markdown-2.2.0 numpy-1.14.3 protobuf-3.5.2.post1 six-1.11.0 tensorflow-gpu-1.2.0 werkzeug-0.14.1
+
+
+
+
+
+(env) D:\Desktops\SEQ2SEQ\seq2seq-chatbot>pip install nltk
+Collecting nltk
+  Downloading https://files.pythonhosted.org/packages/50/09/3b1755d528ad9156ee7243d52aa5cd2b809ef053a0f31b53d92853dd653a/nltk-3.3.0.zip (1.4MB)
+    100% |████████████████████████████████| 1.4MB 3.7MB/s
+Requirement already satisfied: six in d:\desktops\seq2seq\seq2seq-chatbot\env\lib\site-packages (from nltk) (1.11.0)
+Building wheels for collected packages: nltk
+  Running setup.py bdist_wheel for nltk ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\d1\ab\40\3bceea46922767e42986aef7606a600538ca80de6062dc266c
+Successfully built nltk
+Installing collected packages: nltk
+Successfully installed nltk-3.3
+
+
+
+
+(env) D:\Desktops\SEQ2SEQ\seq2seq-chatbot>pip install sklearn
+Collecting sklearn
+  Downloading https://files.pythonhosted.org/packages/1e/7a/dbb3be0ce9bd5c8b7e3d87328e79063f8b263b2b1bfa4774cb1147bfcd3f/sklearn-0.0.tar.gz
+Collecting scikit-learn (from sklearn)
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/67/e5/1459a3d6c6029a86b840b7701c48429d857eb2086916fec76f97c94dcc7a/scikit_learn-0.19.1-cp36-cp36m-win_amd64.whl (4.3MB)
+    100% |████████████████████████████████| 4.4MB 1.0MB/s
+Building wheels for collected packages: sklearn
+  Running setup.py bdist_wheel for sklearn ... done
+  Stored in directory: C:\Users\NguyenThanhThai\AppData\Local\pip\Cache\wheels\76\03\bb\589d421d27431bcd2c6da284d5f2286c8e3b2ea3cf1594c074
+Successfully built sklearn
+Installing collected packages: scikit-learn, sklearn
+Successfully installed scikit-learn-0.19.1 sklearn-0.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

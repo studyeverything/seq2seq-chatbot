@@ -11,3 +11,8 @@ data/.DS_Store
 *.pyc
 *.gz
 .spyproject/
+/backup_libs/
+/env/
+/n.rar
+/n.npz
+/backup_libs/tensorlayer-1.6.3.zip
