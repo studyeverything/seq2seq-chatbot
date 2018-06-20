@@ -145,85 +145,86 @@ tl.files.load_and_assign_npz(sess=sess, name='n.npz', network=net)
 
 ###============= train
 n_epoch = 50
-# for epoch in range(n_epoch):
-#     epoch_time = time.time()
-#     ## shuffle training data
-#     from sklearn.utils import shuffle
-#     trainX, trainY = shuffle(trainX, trainY, random_state=0)
-#     ## train an epoch
-#     total_err, n_iter = 0, 0
-#     for X, Y in tl.iterate.minibatches(inputs=trainX, targets=trainY, batch_size=batch_size, shuffle=False):
-#         step_time = time.time()
-#
-#         X = tl.prepro.pad_sequences(X)
-#         _target_seqs = tl.prepro.sequences_add_end_id(Y, end_id=end_id)
-#         _target_seqs = tl.prepro.pad_sequences(_target_seqs)
-#
-#         _decode_seqs = tl.prepro.sequences_add_start_id(Y, start_id=start_id, remove_last=False)
-#         _decode_seqs = tl.prepro.pad_sequences(_decode_seqs)
-#         _target_mask = tl.prepro.sequences_get_mask(_target_seqs)
-#
-#         ## you can view the data here
-#         # for i in range(len(X)):
-#         #     print(i, [idx2w[id] for id in X[i]])
-#         #     # print(i, [idx2w[id] for id in Y[i]])
-#         #     print(i, [idx2w[id] for id in _target_seqs[i]])
-#         #     print(i, [idx2w[id] for id in _decode_seqs[i]])
-#         #     print(i, _target_mask[i])
-#         #     print(len(_target_seqs[i]), len(_decode_seqs[i]), len(_target_mask[i]))
-#         # exit()
-#
-#         _, err = sess.run([train_op, loss],
-#                         {encode_seqs: X,
-#                         decode_seqs: _decode_seqs,
-#                         target_seqs: _target_seqs,
-#                         target_mask: _target_mask})
-#
-#         if n_iter % 200 == 0:
-#             print("Epoch[%d/%d] step:[%d/%d] loss:%f took:%.5fs" % (epoch, n_epoch, n_iter, n_step, err, time.time() - step_time))
-#
-#         total_err += err;
-#         n_iter += 1
-#
-#         ###============= inference
-#         if n_iter % 1000 == 0:
-#             seeds = ["happy birthday have a nice day",
-#                     "donald trump won last nights presidential debate according to snap online polls"]
-#             for seed in seeds:
-#                 print("Query >", seed)
-#                 seed_id = [w2idx[w] for w in seed.split(" ")]
-#                 for _ in range(5):  # 1 Query --> 5 Reply
-#                     # 1. encode, get state
-#                     state = sess.run(net_rnn.final_state_encode,
-#                                     {encode_seqs2: [seed_id]})
-#                     # 2. decode, feed start_id, get first word
-#                     #   ref https://github.com/zsdonghao/tensorlayer/blob/master/example/tutorial_ptb_lstm_state_is_tuple.py
-#                     o, state = sess.run([y, net_rnn.final_state_decode],
-#                                     {net_rnn.initial_state_decode: state,
-#                                     decode_seqs2: [[start_id]]})
-#                     w_id = tl.nlp.sample_top(o[0], top_k=3)
-#                     w = idx2w[w_id]
-#                     # 3. decode, feed state iteratively
-#                     sentence = [w]
-#                     for _ in range(30): # max sentence length
-#                         o, state = sess.run([y, net_rnn.final_state_decode],
-#                                         {net_rnn.initial_state_decode: state,
-#                                         decode_seqs2: [[w_id]]})
-#                         w_id = tl.nlp.sample_top(o[0], top_k=2)
-#                         w = idx2w[w_id]
-#                         if w_id == end_id:
-#                             break
-#                         sentence = sentence + [w]
-#                     print(" >", ' '.join(sentence))
-#
-#     print("Epoch[%d/%d] averaged loss:%f took:%.5fs" % (epoch, n_epoch, total_err/n_iter, time.time()-epoch_time))
-#
-#     tl.files.save_npz(net.all_params, name='n.npz', sess=sess)
+for epoch in range(2,n_epoch):
+    epoch_time = time.time()
+    ## shuffle training data
+    from sklearn.utils import shuffle
+    trainX, trainY = shuffle(trainX, trainY, random_state=0)
+    ## train an epoch
+    total_err, n_iter = 0, 0
+    for X, Y in tl.iterate.minibatches(inputs=trainX, targets=trainY, batch_size=batch_size, shuffle=False):
+        step_time = time.time()
+
+        X = tl.prepro.pad_sequences(X)
+        _target_seqs = tl.prepro.sequences_add_end_id(Y, end_id=end_id)
+        _target_seqs = tl.prepro.pad_sequences(_target_seqs)
+
+        _decode_seqs = tl.prepro.sequences_add_start_id(Y, start_id=start_id, remove_last=False)
+        _decode_seqs = tl.prepro.pad_sequences(_decode_seqs)
+        _target_mask = tl.prepro.sequences_get_mask(_target_seqs)
+
+        ## you can view the data here
+        # for i in range(len(X)):
+        #     print(i, [idx2w[id] for id in X[i]])
+        #     # print(i, [idx2w[id] for id in Y[i]])
+        #     print(i, [idx2w[id] for id in _target_seqs[i]])
+        #     print(i, [idx2w[id] for id in _decode_seqs[i]])
+        #     print(i, _target_mask[i])
+        #     print(len(_target_seqs[i]), len(_decode_seqs[i]), len(_target_mask[i]))
+        # exit()
+
+        _, err = sess.run([train_op, loss],
+                        {encode_seqs: X,
+                        decode_seqs: _decode_seqs,
+                        target_seqs: _target_seqs,
+                        target_mask: _target_mask})
+
+        if n_iter % 200 == 0:
+            print("Epoch[%d/%d] step:[%d/%d] loss:%f took:%.5fs" % (epoch, n_epoch, n_iter, n_step, err, time.time() - step_time))
+
+        total_err += err;
+        n_iter += 1
+
+        ###============= inference
+        if n_iter % 1000 == 0:
+            seeds = ["happy birthday have a nice day",
+                    "donald trump won last nights presidential debate according to snap online polls"]
+            for seed in seeds:
+                print("Query >", seed)
+                seed_id = [w2idx[w] for w in seed.split(" ")]
+                for _ in range(5):  # 1 Query --> 5 Reply
+                    # 1. encode, get state
+                    state = sess.run(net_rnn.final_state_encode,
+                                    {encode_seqs2: [seed_id]})
+                    # 2. decode, feed start_id, get first word
+                    #   ref https://github.com/zsdonghao/tensorlayer/blob/master/example/tutorial_ptb_lstm_state_is_tuple.py
+                    o, state = sess.run([y, net_rnn.final_state_decode],
+                                    {net_rnn.initial_state_decode: state,
+                                    decode_seqs2: [[start_id]]})
+                    w_id = tl.nlp.sample_top(o[0], top_k=3)
+                    w = idx2w[w_id]
+                    # 3. decode, feed state iteratively
+                    sentence = [w]
+                    for _ in range(30): # max sentence length
+                        o, state = sess.run([y, net_rnn.final_state_decode],
+                                        {net_rnn.initial_state_decode: state,
+                                        decode_seqs2: [[w_id]]})
+                        w_id = tl.nlp.sample_top(o[0], top_k=2)
+                        w = idx2w[w_id]
+                        if w_id == end_id:
+                            break
+                        sentence = sentence + [w]
+                    print(" >", ' '.join(sentence))
+
+    print("Epoch[%d/%d] averaged loss:%f took:%.5fs" % (epoch, n_epoch, total_err/n_iter, time.time()-epoch_time))
+
+    tl.files.save_npz(net.all_params, name='n.npz', sess=sess)
 
 
 # NTT TODO test train
 seeds = ["hello",
-         "how are you"]
+         "how are you",
+         "what your name"]
 for seed in seeds:
     print("Query >", seed)
     seed_id = [w2idx[w] for w in seed.split(" ")]
